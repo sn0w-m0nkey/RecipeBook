@@ -1,0 +1,22 @@
+{
+  "Title": "Test Recipe",
+  "SourceUrl": "https://example.com/test-recipe",
+  "Ingredients": [
+    "1 cup test ingredient 1",
+    "2 tbsp test ingredient 2",
+    "3 slices test ingredient 3"
+  ],
+  "Instructions": [
+    "Mix all ingredients together.",
+    "Cook over medium heat for 5 minutes.",
+    "Serve warm."
+  ],
+  "Customizations": [
+    "Add extra seasoning if desired.",
+    "Garnish with fresh herbs."
+  ],
+  "Vegetables": [
+    "Steam broccoli for 2 minutes.",
+    "Quickly sauté mushrooms and peppers."
+  ]
+}

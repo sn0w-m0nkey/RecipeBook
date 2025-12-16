@@ -1,0 +1,25 @@
+# Recipe JSON Generator Prompt Template
+
+Use this template to generate a JSON file compatible with the Recipe.cs structure.
+
+Instructions:
+1. Replace {RECIPE_URL} with the URL of the recipe you want to add.
+2. Keep instructions concise; remove any unnecessary text.
+3. Include optional customizations if present in the source recipe.
+4. Return ONLY a single JSON object that matches the Recipe.cs class structure.
+
+Recipe.cs reference:
+
+public class Recipe
+{
+    public string Title { get; set; }
+    public string SourceUrl { get; set; }
+    public List<string> Ingredients { get; set; }
+    public List<string> Instructions { get; set; }
+    public List<string>? Customizations { get; set; }
+}
+
+Template:
+
+"Please extract this recipe into a clean JSON object that matches the above Recipe.cs structure. 
+Recipe URL: {RECIPE_URL}"
