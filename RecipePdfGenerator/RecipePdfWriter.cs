@@ -2,6 +2,7 @@ using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
 using System.Collections.Generic;
+using RecipePdfGenerator.Models;
 
 namespace RecipePdfGenerator
 {
@@ -33,17 +34,44 @@ namespace RecipePdfGenerator
                            .FontColor(Colors.Blue.Medium)
                            .LineHeight(1.2f);
 
-                        // Ingredients
                         SectionHeading(col, "Ingredients");
-                        foreach (var ingredient in recipe.Ingredients)
+                        // NEW grouped ingredients
+                        if (recipe.IngredientGroups != null && recipe.IngredientGroups.Any())
                         {
-                            col.Item()
-                               .PaddingLeft(10)
-                               .PaddingBottom(2)
-                               .Text($"• {ingredient}")
-                               .FontSize(12)
-                               .LineHeight(1.3f);
+                            foreach (var group in recipe.IngredientGroups)
+                            {
+                                col.Item()
+                                    .PaddingTop(5)
+                                    .PaddingBottom(2)
+                                    .Text(group.Header)
+                                    .Bold()
+                                    .FontSize(13);
+
+                                foreach (var item in group.Items)
+                                {
+                                    col.Item()
+                                        .PaddingLeft(10)
+                                        .PaddingBottom(2)
+                                        .Text($"• {item}")
+                                        .FontSize(12)
+                                        .LineHeight(1.3f);
+                                }
+                            }
                         }
+                        // OLD flat ingredients
+                        else if (recipe.Ingredients != null)
+                        {
+                            foreach (var ingredient in recipe.Ingredients)
+                            {
+                                col.Item()
+                                    .PaddingLeft(10)
+                                    .PaddingBottom(2)
+                                    .Text($"• {ingredient}")
+                                    .FontSize(12)
+                                    .LineHeight(1.3f);
+                            }
+                        }
+
 
                         col.Item().PaddingBottom(10);
 
