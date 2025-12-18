@@ -1,32 +1,32 @@
-# Recipe JSON Generator Prompt Template
+Prompt Template for Recipe Project – Generating JSON Recipes
 
-Use this template to generate a JSON file compatible with the Recipe.cs structure.
+Purpose:
+Use this template whenever you want to create a new recipe JSON file for the Recipe project.
 
 Instructions:
-1. Replace {RECIPE_URL} with the URL of the recipe you want to add.
-2. Keep instructions concise; remove any unnecessary text.
-3. Include optional customizations if present in the source recipe.
-4. Return ONLY a single JSON object that matches the Recipe.cs class structure.
-
-Recipe.cs reference:
-
-public class Recipe
-{
-    public string Title { get; set; } = string.Empty;
-    public string SourceUrl { get; set; } = string.Empty;
-
-    // OLD format (still supported)
-    public List<string>? Ingredients { get; set; }
-
-    // NEW format (optional)
-    public List<IngredientGroup>? IngredientGroups { get; set; }
-
-    public List<string> Instructions { get; set; } = new();
-    public List<string>? Customizations { get; set; }
-    public List<string>? OptionalInstructions { get; set; }
-}
+1. Replace the placeholders in brackets [] with the actual information.
+2. Keep the JSON structure consistent with Recipe.cs.
 
 Template:
 
-"Please extract this recipe into a clean JSON object that matches the above Recipe.cs structure. 
-Recipe URL: {RECIPE_URL}"
+Please create a JSON recipe for my Recipe project.
+
+Recipe URL: [Insert recipe URL here]
+
+Recipe class structure:
+- Title (string)
+- SourceUrl (string)
+- IngredientGroups (array of objects):
+    - Header (string)
+    - Items (array of strings)
+- Instructions (array of strings)
+- OptionalInstructions (array of strings, optional)
+- ServingSuggestions (array of strings, optional)
+- Customizations (array of strings, optional)
+
+Additional instructions:
+- Use the original measurements and instructions from the source.
+- Convert temperatures to Celsius.
+- Organize ingredients in groups if the recipe provides sections.
+- For optional instructions and serving suggestions, include them in their respective fields.
+- Ensure the JSON is well-formatted and ready to save as a file.
