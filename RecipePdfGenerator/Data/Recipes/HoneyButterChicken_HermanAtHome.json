@@ -1,6 +1,7 @@
 {
   "Title": "Honey Butter Chicken (HermanAtHome)",
   "SourceUrl": "https://hermanathome.com/honey-butter-chicken/",
+
   "IngredientGroups": [
     {
       "Header": "For the Chicken",
@@ -29,24 +30,30 @@
     "Preheat your air fryer to 180°C.",
     "Air fry the chicken for 12–15 minutes, flipping halfway, until mostly cooked and golden.",
     "While the chicken is cooking, mix soy sauce, honey, water, and cornstarch in a bowl.",
-    "In a frying pan, melt the butter, the add the minced garlic and cook for 30 seconds.",
-    "Pour in the sauce mixture, stir, and let it simmer for 1-2 minutes until thickened.",
-    "Add the air‑fried chicken to the pan and toss to coat evenly in the sauce.",
-    "Cook together 1–2 minutes so the sauce clings to the chicken.",
+    "In a frying pan, melt the butter, then add the minced garlic and cook for 30 seconds.",
+    "Pour in the sauce mixture, stir, and let it simmer for 1–2 minutes until thickened.",
+    "Add the air-fried chicken to the pan and toss to coat evenly in the sauce.",
+    "Cook together for 1–2 minutes so the sauce clings to the chicken.",
     "Serve with rice, veggies, and other sides."
   ],
+
   "Customizations": [
     "Add a pinch of chilli flakes or cayenne for heat.",
     "Use chicken breast instead of thighs if preferred.",
-    "Finish with a squeeze of lemon juice for brightness.",
-    "Garnish with chopped parsley or spring onions.",
-    "Serve with sautéed green beans, broccoli, or a fresh cucumber salad for extra crunch."
+    "Finish with a squeeze of lemon juice for brightness."
   ],
+
   "OptionalInstructions": [
     "Steam or blanch broccoli and baby bok choy for 2–3 minutes until tender.",
     "Quickly sauté peppers and mushrooms in a little oil for 2–3 minutes.",
-    "Add bean sprouts and chillies raw or toss with cooked veggies.",
-    "Sprinkle fresh coriander on top before serving.",
-    "Serve cooked vegetables on top of chicken and rice or on the side."
+    "Add bean sprouts and chillies raw or toss briefly with cooked vegetables."
+  ],
+
+  "ServingSuggestions": [
+    "Serve over steamed white or jasmine rice.",
+    "Top with the cooked vegetables or serve them on the side.",
+    "Garnish with chopped parsley or spring onions.",
+    "Finish with fresh coriander for colour and freshness.",
+    "Add a fresh cucumber salad on the side for crunch."
   ]
 }

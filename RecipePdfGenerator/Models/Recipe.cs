@@ -14,4 +14,5 @@ public class Recipe
     public List<string> Instructions { get; set; } = new();
     public List<string>? Customizations { get; set; }
     public List<string>? OptionalInstructions { get; set; }
+    public List<string>? ServingSuggestions { get; set; }
 }

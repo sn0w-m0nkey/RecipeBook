@@ -4,6 +4,7 @@ using System.IO;
 using System.Text.Json;
 using QuestPDF.Infrastructure;
 using RecipePdfGenerator.Models;
+using RecipePdfGenerator.PdfGeneration;
 
 namespace RecipePdfGenerator
 {
@@ -42,7 +43,7 @@ namespace RecipePdfGenerator
                 string outputPath = Path.Combine(outputFolder, $"{safeTitle}.pdf");
 
                 // Generate the PDF using the static RecipePdfWriter
-                RecipePdfWriter.GeneratePdf(recipe, outputPath);
+                RecipePdfWriter.WriteRecipePdf(recipe, outputPath);
 
                 Console.WriteLine($"PDF generated: {outputPath}");
             }
