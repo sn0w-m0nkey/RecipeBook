@@ -66,7 +66,7 @@ public static class RecipePdfWriter
                         SectionHeading(col, "Optional Instructions");
 
                         foreach (var step in recipe.OptionalInstructions)
-                            Bullet(col, step);
+                            OptionalOrServingBullet(col, step);
                     }
 
                     // SERVING SUGGESTIONS
@@ -75,7 +75,7 @@ public static class RecipePdfWriter
                         SectionHeading(col, "Serving Suggestions");
 
                         foreach (var suggestion in recipe.ServingSuggestions)
-                            Bullet(col, suggestion);
+                            OptionalOrServingBullet(col, suggestion);
                     }
                 });
             });
@@ -104,7 +104,22 @@ public static class RecipePdfWriter
             row.RelativeItem()
                 .Text(text)
                 .FontSize(PdfLayout.BodyFontSize)
-                .LineHeight(PdfLayout.BodyLineHeight);
+                .LineHeight(PdfLayout.IngredientLineHeight);
+        });
+    }
+
+    private static void OptionalOrServingBullet(ColumnDescriptor col, string text)
+    {
+        col.Item().Row(row =>
+        {
+            row.ConstantItem(PdfLayout.BulletIndent)
+                .Text("•")
+                .FontSize(PdfLayout.BodyFontSize);
+
+            row.RelativeItem()
+                .Text(text)
+                .FontSize(PdfLayout.BodyFontSize)
+                .LineHeight(PdfLayout.OptionalOrServingBulletLineHeight);
         });
     }
 
