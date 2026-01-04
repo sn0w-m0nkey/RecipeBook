@@ -47,8 +47,9 @@ namespace RecipePdfGenerator
 
                 Console.WriteLine($"PDF generated: {outputPath}");
             }
-
-            Console.WriteLine("All recipes processed!");
+            
+            Console.WriteLine("All recipes processed! ");
+            Console.WriteLine($"{outputFolder}");
         }
     }
 }

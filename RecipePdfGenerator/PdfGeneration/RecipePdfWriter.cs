@@ -1,3 +1,4 @@
+using System.Linq;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using RecipePdfGenerator.Models;
@@ -24,6 +25,16 @@ public static class RecipePdfWriter
                         .FontSize(PdfLayout.TitleFontSize)
                         .Bold();
 
+                    // Servings (optional)
+                    if (recipe.Servings is > 0)
+                    {
+                        col.Item()
+                            .PaddingBottom(PdfLayout.ItemBottomPadding)
+                            .Text($"Servings: {recipe.Servings}")
+                            .FontSize(PdfLayout.SmallFontSize)
+                            .FontColor(Colors.Grey.Darken2);
+                    }
+
                     // Source URL
                     col.Item()
                         .PaddingBottom(PdfLayout.SectionTopPadding)
@@ -34,31 +45,29 @@ public static class RecipePdfWriter
                     // INGREDIENTS
                     SectionHeading(col, "Ingredients");
 
-                    if (recipe.IngredientGroups != null && recipe.IngredientGroups.Any())
+                    foreach (var group in recipe.IngredientGroups)
                     {
-                        foreach (var group in recipe.IngredientGroups)
-                        {
-                            col.Item()
-                                .PaddingTop(PdfLayout.GroupTopPadding)
-                                .Text(group.Header)
-                                .FontSize(PdfLayout.GroupHeaderFontSize)
-                                .Bold();
+                        col.Item()
+                            .PaddingTop(PdfLayout.GroupTopPadding)
+                            .Text(group.Header)
+                            .FontSize(PdfLayout.GroupHeaderFontSize)
+                            .Bold();
 
-                            foreach (var item in group.Items)
-                                Bullet(col, item);
-                        }
-                    }
-                    else if (recipe.Ingredients != null)
-                    {
-                        foreach (var ingredient in recipe.Ingredients)
-                            Bullet(col, ingredient);
+                        foreach (var item in group.Items)
+                            Bullet(col, item);
                     }
 
-                    // INSTRUCTIONS
-                    SectionHeading(col, "Instructions");
+                    // INSTRUCTIONS (supports Preparation + Cooking)
+                    WriteInstructions(col, recipe);
 
-                    for (int i = 0; i < recipe.Instructions.Count; i++)
-                        Numbered(col, i + 1, recipe.Instructions[i]);
+                    // CUSTOMISATIONS
+                    if (recipe.Customizations?.Any() == true)
+                    {
+                        SectionHeading(col, "Customisations");
+
+                        foreach (var step in recipe.Customizations)
+                            CustomBulletsOptionalOrServingBullet(col, step);
+                    }
 
                     // OPTIONAL INSTRUCTIONS
                     if (recipe.OptionalInstructions?.Any() == true)
@@ -66,7 +75,7 @@ public static class RecipePdfWriter
                         SectionHeading(col, "Optional Instructions");
 
                         foreach (var step in recipe.OptionalInstructions)
-                            OptionalOrServingBullet(col, step);
+                            CustomBulletsOptionalOrServingBullet(col, step);
                     }
 
                     // SERVING SUGGESTIONS
@@ -75,12 +84,47 @@ public static class RecipePdfWriter
                         SectionHeading(col, "Serving Suggestions");
 
                         foreach (var suggestion in recipe.ServingSuggestions)
-                            OptionalOrServingBullet(col, suggestion);
+                            CustomBulletsOptionalOrServingBullet(col, suggestion);
                     }
                 });
             });
         })
         .GeneratePdf(outputPath);
+    }
+
+    private static void WriteInstructions(ColumnDescriptor col, Recipe recipe)
+    {
+        var hasPrep = recipe.Preparation?.Any() == true;
+        var hasCook = recipe.Cooking?.Any() == true;
+
+        if (hasPrep || hasCook)
+        {
+            SectionHeading(col, "Instructions");
+
+            if (hasPrep)
+            {
+                SubSectionHeading(col, "Preparation");
+                for (int i = 0; i < recipe.Preparation!.Count; i++)
+                    Numbered(col, i + 1, recipe.Preparation[i]);
+            }
+
+            if (hasCook)
+            {
+                SubSectionHeading(col, "Cooking");
+                for (int i = 0; i < recipe.Cooking!.Count; i++)
+                    Numbered(col, i + 1, recipe.Cooking[i]);
+            }
+
+            return;
+        }
+
+        // Backwards compatibility
+        if (recipe.Instructions?.Any() == true)
+        {
+            SectionHeading(col, "Instructions");
+            for (int i = 0; i < recipe.Instructions.Count; i++)
+                Numbered(col, i + 1, recipe.Instructions[i]);
+        }
     }
 
     private static void SectionHeading(ColumnDescriptor col, string text)
@@ -90,6 +134,17 @@ public static class RecipePdfWriter
             .PaddingBottom(PdfLayout.SectionBottomPadding)
             .Text(text)
             .FontSize(PdfLayout.SectionFontSize)
+            .Bold();
+    }
+
+    private static void SubSectionHeading(ColumnDescriptor col, string text)
+    {
+        col.Item()
+            .PaddingTop(PdfLayout.GroupTopPadding)
+            .PaddingBottom(PdfLayout.ItemBottomPadding)
+            .Text(text)
+            .FontSize(PdfLayout.GroupHeaderFontSize)
+            .FontColor(Colors.Grey.Darken2)
             .Bold();
     }
 
@@ -108,7 +163,7 @@ public static class RecipePdfWriter
         });
     }
 
-    private static void OptionalOrServingBullet(ColumnDescriptor col, string text)
+    private static void CustomBulletsOptionalOrServingBullet(ColumnDescriptor col, string text)
     {
         col.Item().Row(row =>
         {

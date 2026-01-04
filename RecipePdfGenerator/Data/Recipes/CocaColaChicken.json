@@ -1,0 +1,63 @@
+﻿{
+  "Title": "Cola-Braised Chicken Thighs",
+  "SourceUrl": "https://www.bbcgoodfood.com/recipes/diet-cola-chicken | https://beyondthenoms.com/braised-coca-cola-chicken-thighs/ | https://www.spendwithpennies.com/cola-chicken/",
+  "IngredientGroups": [
+    {
+      "Header": "Chicken + quick marinade (20–60 min)",
+      "Items": [
+        "~800 g chicken thighs (bone-in/skin-on or boneless/skinless)",
+        "2 tbsp soy sauce",
+        "1 tbsp Worcestershire sauce",
+        "2 tbsp cola",
+        "2 garlic cloves, minced",
+        "~10 g fresh ginger, minced/grated",
+        "Black pepper, to taste"
+      ]
+    },
+    {
+      "Header": "Main",
+      "Items": [
+        "1 tbsp oil",
+        "1 large onion, finely chopped",
+        "1 red pepper, deseeded and cut into chunks",
+        "1 yellow pepper, deseeded and cut into chunks",
+        "1 tsp dried oregano",
+        "1/2 tsp mustard powder",
+        "1 tbsp light brown sugar",
+        "Tomato base: 3 tbsp tomato purée OR 5 tbsp ketchup (or a combo totalling ~5 tbsp)",
+        "330 ml cola (diet or regular)",
+        "250–300 ml chicken stock",
+        "1 cinnamon stick (optional)",
+        "Salt, to taste (adjust at the end)",
+        "2 spring onions, finely sliced (to finish)",
+        "1 tsp sesame seeds (to finish)"
+      ]
+    },
+    {
+      "Header": "Optional thickening",
+      "Items": [
+        "2 tbsp cornflour (cornstarch)",
+        "80 ml water"
+      ]
+    }
+  ],
+  "Instructions": [
+    "Marinate (20–60 min): Mix 2 tbsp soy sauce, 1 tbsp Worcestershire sauce, 2 tbsp cola, 2 minced garlic cloves, ~10 g minced/grated ginger, and a few grinds of black pepper. Add ~800 g chicken thighs, coat well, and refrigerate for 20–60 minutes.",
+    "Prep for searing: Remove chicken from the marinade and pat dry with kitchen roll. Reserve the marinade for later.",
+    "Brown the chicken: Heat 1 tbsp oil in a large pan over medium-high heat. Brown chicken well on both sides (about 3–5 minutes per side; skin-side down first if using skin-on). Remove to a plate.",
+    "Cook the veg: Reduce heat to medium. Add 1 finely chopped large onion and cook 6–10 minutes until softened. Add 1 red pepper (chunks) and 1 yellow pepper (chunks) and cook 2–3 minutes.",
+    "Build the sauce: Stir in 1 tsp dried oregano, 1/2 tsp mustard powder, and 1 tbsp light brown sugar. Add tomato base (3 tbsp tomato purée OR 5 tbsp ketchup, or a mix totalling ~5 tbsp) and cook 30 seconds. Pour in the reserved marinade, 330 ml cola, and 250–300 ml chicken stock. Bring to the boil, scraping up any browned bits.",
+    "Braise: Return chicken (and any juices) to the pan. Add 1 cinnamon stick (optional). Cover and simmer gently for 15 minutes.",
+    "Reduce to sticky: Remove lid and simmer 15–30 minutes more, turning chicken occasionally, until sauce is glossy and reduced and chicken is cooked through (74°C / 165°F internal). Taste and add salt and pepper if needed.",
+    "Optional thicken: Mix 2 tbsp cornflour with 80 ml water. Remove chicken, bring sauce to a boil, whisk in a little slurry at a time until it coats a spoon, then return chicken to coat.",
+    "Finish + serve: Remove the cinnamon stick (if used). Top with 2 sliced spring onions and 1 tsp sesame seeds. Serve with rice (or pasta)."
+  ],
+  "Customizations": [
+    "For a less tangy sauce, lean more toward tomato purée; for a sweeter, stickier glaze, lean more toward ketchup.",
+    "Boneless/skinless thighs cook faster; start checking around the 20–25 minute mark after braising begins."
+  ],
+  "ServingSuggestions": [
+    "Serve with rice (best for soaking up the sauce) or pasta.",
+    "Add steamed greens on the side (broccoli, green beans)."
+  ]
+}
